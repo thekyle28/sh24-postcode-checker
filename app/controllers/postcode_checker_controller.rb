@@ -6,18 +6,18 @@ class PostcodeCheckerController < ApplicationController
     postcode = helpers.clean_postcode(postcode_params.dig('postcode'))
     response = postcode_checker_api(postcode)
     
-    @result = 'Postcode is in an accepted LSOA'
+    @result = I18n.t('.accepted_postcode_lsoa')
     
     error = response.dig('error')
     if error.present?
       if error == 'Invalid postcode'
-        @result = 'Invalid postcode, please give a postcode in the correct UK format'
+        @result = I18n.t('.invalid_postcode')
       elsif error == 'No postcode query submitted. Remember to include query parameter'
-        @result = 'Please input a postcode'
+        @result = I18n.t('.errors.prescence.postcode')
       elsif error == 'Postcode not found'
-        @result = 'Postcode in accepted LSOA'
+        @result = I18n.t('.accepted_postcode_lsoa')
       else
-        @result = 'An error has occured'
+        @result = I18n.t('.errors.other')
       end
       render :index
       return
@@ -26,13 +26,13 @@ class PostcodeCheckerController < ApplicationController
     @lsoa = response.dig('result', 'lsoa')
     
     Postcode::ALLOWED_LSOAS.each do |allowed_lsoa|
-      if lsoa.include? allowed_lsoa
+      if @lsoa.include? allowed_lsoa
         render :index
         return
       end
     end
     
-    @result = 'Postcode is not in an accepted LSOA'
+    @result = I18n.t('.not_accepted_postcode_lsoa')
     render :index
   end
 

@@ -30,3 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  invalid_postcode: 'Invalid postcode, please give a postcode in the correct UK format'
+  accepted_postcode_lsoa: 'Postcode is in an accepted LSOA'
+  not_accepted_postcode_lsoa: 'Postcode is not in an accepted LSOA'
+  errors:
+    other: 'An error has occured'
+    prescence:
+      postcode: 'Please input a postcode'
