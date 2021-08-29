@@ -1,6 +1,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative "../config/environment"
 require "rails/test_help"
+require 'application_system_test_case'
+require 'capybara/rails'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -12,4 +14,6 @@ class ActiveSupport::TestCase
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
+
+  Selenium::WebDriver::Chrome.path ||= '/mnt/d/Dev/Drivers/chromedriver_win32/chromedriver'
 end

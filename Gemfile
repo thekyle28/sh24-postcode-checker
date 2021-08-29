@@ -26,6 +26,8 @@ gem 'pry-byebug'
 gem 'pry-rails'
 gem 'httparty'
 gem 'rexml'
+gem 'rspec'
+gem 'capybara-screenshot'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
