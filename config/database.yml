@@ -14,14 +14,7 @@ development:
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
   username: postgres
-  password: password
-
-  # The password associated with the postgres role (username).
-  #password:
-
-  # Connect on a TCP socket. Omitted by default since the client uses a
-  # domain socket that doesn't need configuration. Windows does not have
-  # domain sockets, so uncomment these lines.
+  password: password # Would never do this in a real system instead create a pointer to where the password would be locally
   host: 127.0.0.1
 
   # The TCP port the server listens on. Defaults to 5432.
@@ -43,6 +36,9 @@ development:
 test:
   <<: *default
   database: postcode_checker_test
+  username: postgres
+  password: password
+  host: 127.0.0.1
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
