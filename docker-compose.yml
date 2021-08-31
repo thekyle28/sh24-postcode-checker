@@ -1,0 +1,12 @@
+# version: '2'
+# services:
+#   chrome:
+#     image: selenium/standalone-chrome-debug
+#     volumes:
+#       - /dev/shm:/dev/shm
+#   myapp:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.development
+#     depends_on:
+#       - chrome
